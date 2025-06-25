@@ -50,8 +50,13 @@ const Header = () => {
     <header className="w-full shadow-md bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <img src="/logo.svg" alt="Logo" className="h-10 w-auto object-contain" />
-          <h1 className="text-xl font-bold text-gray-800 tracking-tight">AI TripGen</h1>
+          <a href='/' className='flex gap-3'>
+            <img src="/logo.svg" alt="Logo" className="h-10 w-auto object-contain" />
+          
+            <h1 className="text-xl font-bold text-gray-800 tracking-tight">AI TripGen</h1>
+          
+          </a>
+          
         </div>
 
         <div>

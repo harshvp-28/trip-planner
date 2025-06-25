@@ -9,7 +9,9 @@ const Hotels = ({trip}) => {
       
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6'>
         {trip?.tripData?.hotel_options?.map((hotel, index) => (
-          <HotelCardItem key={index} hotel={hotel} />
+          <div key={index} className="h-full">
+            <HotelCardItem hotel={hotel} />
+          </div>
         ))}
       </div>
     </div>

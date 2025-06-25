@@ -51,4 +51,32 @@ export const SelectTravelesList=[
     
  ]
 
- export const AI_PROMPT = 'Generate Travel Plan for Location : {location}, for {totalDays} Days for {traveler} People with a {budget} budget ,Give me a Hotels options list with Hotel Name, Hotel address, Price, hotel image url, geo coordinates, rating, descriptions and suggest itinerary with place Name, Place Details, Place Image Url, Geo Coordinates, ticket Pricing, rating, Time travel each of the location for {totalDays} days with each day plan with best time to visit in JSON format  '
+export const AI_PROMPT = `Generate a travel plan in strict JSON format for location: {location}, for {totalDays} days for {traveler} with a {budget} budget.
+
+Return:
+1. best_time_to_visit
+2. noOfDays: number of days for the trip (same as {totalDays})
+3. hotel_options: array of at least 8 to 10 hotels. Each hotel must include:
+   - name
+   - address
+   - price
+   - image_url
+   - geo_coordinates
+   - rating
+   - description (a few sentences highlighting features, ambiance, and location)
+
+4. itinerary: an object with keys like day1, day2, etc., where each day contains a "plan": an array of 5 to 7 diverse places or activities that cover the full day (morning, afternoon, evening, night). Each plan item must include:
+   - place (name of the attraction or activity)
+   - details (2–3 sentences describing what the place is, why it’s worth visiting, and what travelers can expect)
+   - image_url
+   - geo_coordinates
+   - ticket_pricing
+   - rating
+   - time (e.g., Morning / Afternoon / Evening / Night)
+
+Guidelines:
+- The itinerary must cover the entire day with a variety of experiences — historical, cultural, natural, recreational, or local food/shopping.
+- Do not repeat the same attractions across different days.
+- The output must strictly follow the above JSON structure.`
+
+

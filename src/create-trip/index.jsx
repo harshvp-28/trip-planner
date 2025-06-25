@@ -7,14 +7,7 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
 import { toast } from 'sonner';
 import { VscLoading } from "react-icons/vsc";
 import { FcGoogle } from "react-icons/fc";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogDescription, DialogClose } from "@/components/ui/dialog";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { doc, setDoc } from "firebase/firestore"; 
@@ -171,20 +164,36 @@ const CreateTrip = () => {
       </div>
 
       {/* Google Sign-In Dialog */}
-      <Dialog open={openDialog}>
-        <DialogContent>
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent className="relative">
           <DialogHeader>
             <DialogDescription className='flex flex-col items-center gap-4'>
               <img src='/logo.svg' alt='App Logo' className='w-16 h-16' />
               <h2 className='font-bold text-lg mt-2'>Sign In With Google</h2>
-              <p className='text-sm text-gray-500 text-center'>Sign in to unlock personalized trip planning using your Google account.</p>
-              <Button onClick={login} className='cursor-pointer w-full mt-4 flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white'>
+              <p className='text-sm text-gray-500 text-center'>
+                Sign in to unlock personalized trip planning using your Google account.
+              </p>
+              <Button 
+                onClick={login} 
+                className='cursor-pointer w-full mt-4 flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white'
+              >
                 <FcGoogle className='h-6 w-6' /> Sign In with Google
               </Button>
             </DialogDescription>
           </DialogHeader>
+
+          {/* This is the correct way to implement a close button in Shadcn/Radix Dialog */}
+          <DialogClose asChild>
+            <button 
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </DialogClose>
         </DialogContent>
       </Dialog>
+
     </div>
   )
 }

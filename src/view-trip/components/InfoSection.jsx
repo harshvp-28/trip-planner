@@ -11,12 +11,23 @@ const InfoSection = ({trip}) => {
 
 
   useEffect(() => {
-    trip && GetPlacePhoto();
-  },[trip])
+    if (trip?.userSelection?.location?.label) {
+      GetPlacePhoto();
+    } else {
+      console.log("Skipping API call — trip.userSelection.location.label missing");
+    }
+  }, [trip]);
+
 
   const GetPlacePhoto = async () => {
       const data = {
         textQuery: trip?.userSelection?.location?.label
+      }
+      console.log("Calling Google API with:", data);
+
+      if (!data.textQuery) {
+        console.error("textQuery is undefined or empty!", data);
+        return; // prevent API call
       }
       try {
         const resp = await GetPlacDetails(data);
