@@ -59,7 +59,7 @@ Return:
 3. hotel_options: array of at least 8 to 10 hotels. Each hotel must include:
    - name
    - address
-   - price
+   - price (in the local currency of the destination — include both the currency symbol and name, e.g., ₹2000 (INR - Indian Rupee), $150 (USD - US Dollar))
    - image_url
    - geo_coordinates
    - rating
@@ -70,13 +70,16 @@ Return:
    - details (2–3 sentences describing what the place is, why it’s worth visiting, and what travelers can expect)
    - image_url
    - geo_coordinates
-   - ticket_pricing
+   - ticket_pricing (in local currency — include both symbol and name, e.g., €12 (EUR - Euro), ¥1000 (JPY - Japanese Yen))
    - rating
    - time (e.g., Morning / Afternoon / Evening / Night)
 
 Guidelines:
 - The itinerary must cover the entire day with a variety of experiences — historical, cultural, natural, recreational, or local food/shopping.
 - Do not repeat the same attractions across different days.
-- The output must strictly follow the above JSON structure.`
+- All prices (hotel and ticket_pricing) must be in the **local currency of the destination**, showing both the currency symbol and the currency name/code.
+- The output must strictly follow the above JSON structure.`;
+
+
 
 
