@@ -23,7 +23,7 @@ export const SelectTravelesList=[
     {
         id: 4,
         title: 'Friends',
-        desc: 'Perfect for planning trips with your close group of friends — filled with laughter, adventure, and unforgettable memories.',
+        desc: 'Laughter, memories, and friendship',
         icon: '😎',
         people: '5 to 10 people'
     },
